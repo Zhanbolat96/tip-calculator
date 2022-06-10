@@ -1,9 +1,9 @@
-import { Icon } from '../Icon'
+import { Icon } from 'ui/Icons'
 
 import type { FC } from 'react'
-import type { IconProps } from '../Icon'
+import type { IconProps } from 'ui/Icons'
 
-const RangeCalendar: FC<IconProps> = ({ color, ...props }) => (
+const Splitter: FC<IconProps> = ({ color, ...props }) => (
   <Icon {...props}>
     <path
       fill='#3D6666'
@@ -12,11 +12,11 @@ const RangeCalendar: FC<IconProps> = ({ color, ...props }) => (
   </Icon>
 )
 
-RangeCalendar.defaultProps = {
+Splitter.defaultProps = {
   originalWidth: 87,
   originalHeight: 54,
   width: 87,
   height: 54,
 }
 
-export { RangeCalendar }
+export { Splitter }
