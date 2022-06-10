@@ -62,7 +62,7 @@ build
 .next
 .vscode
 
-# yarn 3 without zero-install
+# yarn 3 with zero-install
 .yarn/*
 !.yarn/cache
 !.yarn/patches
