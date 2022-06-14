@@ -1,4 +1,4 @@
-import type { FC, SVGAttributes } from 'react'
+import type { SVGAttributes } from 'react'
 
 export type IconProps = {
   originalWidth?: number
@@ -39,7 +39,7 @@ const getViewBox = (
   originalHeight: number,
 ) => viewBox || `0 0 ${originalWidth} ${originalHeight}`
 
-const Icon: FC<IconProps> = ({
+const Icon = ({
   originalWidth,
   originalHeight,
   width,
@@ -49,7 +49,7 @@ const Icon: FC<IconProps> = ({
   children,
   viewBox,
   ...props
-}) => (
+}: IconProps) => (
   <svg
     {...props}
     fill={fill}

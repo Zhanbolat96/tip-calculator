@@ -3,14 +3,7 @@ import { Calculator } from './modules/calculator'
 
 function App() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-      }}
-    >
+    <div className='app'>
       <Calculator />
     </div>
   )

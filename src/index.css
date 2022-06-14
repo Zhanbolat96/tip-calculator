@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: Space Mono, sans-serif;
+  font-family: 'Space Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: hsl(185, 41%, 84%);
@@ -9,4 +9,23 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+p, h1, h2, h3, h4, h5, h6, a {
+  color: hsl(184, 14%, 56%);
+  margin: 0;
+  font-family: Space Mono, sans-serif;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-tips {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
 }

@@ -1,9 +1,8 @@
 import { Icon } from 'ui/Icons'
 
-import type { FC } from 'react'
 import type { IconProps } from 'ui/Icons'
 
-const Splitter: FC<IconProps> = ({ color, ...props }) => (
+const Splitter = ({ color, ...props } : IconProps) => (
   <Icon {...props}>
     <path
       fill='#3D6666'
