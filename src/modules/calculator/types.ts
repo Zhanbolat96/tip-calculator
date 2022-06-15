@@ -1,7 +1,7 @@
 export type State = {
-  bill: number,
-  tip: number,
-  person: number
+  bill: string,
+  tip: string,
+  person: string
 }
 
 export type PercentBlockProps = {

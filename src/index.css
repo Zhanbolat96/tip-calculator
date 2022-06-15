@@ -17,6 +17,10 @@ p, h1, h2, h3, h4, h5, h6, a {
   font-family: Space Mono, sans-serif;
 }
 
+input, textarea, select {
+  font-family:inherit;
+}
+
 .app {
   height: 100vh;
   display: flex;
@@ -24,8 +28,33 @@ p, h1, h2, h3, h4, h5, h6, a {
   justify-content: center;
 }
 
+.main {
+  text-align: center;
+}
+
 .grid-tips {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
+}
+
+.tip-block-title {
+  text-align: left;
+}
+
+@media only screen and (min-device-width: 280px) and (max-device-width: 640px) {
+  .main {
+    display: grid;
+    height: 100vh;
+    align-content: space-between;
+  }
+  .splitter-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+  }
+  .grid-tips {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

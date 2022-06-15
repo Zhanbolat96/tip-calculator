@@ -1,18 +1,15 @@
-// import { CSSTransition } from 'react-transition-group'
-
 import { FormFieldWrap } from './styles'
 
 import type { FormFieldProps } from "./types";
 
 const FormField = ({ label, error, size, width, icon, disabled = false, errorText, ...props } : FormFieldProps) => {
   const handleKeyPress = e => {
-    const invalidChars = ['-', '+', 'e', '.', 'E']
+    const invalidChars = ['-', '+', 'e', 'E']
     if(invalidChars.indexOf(e.key) !== -1){
       e.preventDefault()
     }
   }
 
-  // __form-field-icon
   const FormFieldContainer = (
     <div className='__form-field-container'>
       <div className='__form-field-icon'>

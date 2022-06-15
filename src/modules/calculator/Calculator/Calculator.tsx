@@ -26,17 +26,17 @@ const arrayOfPercents = [5, 10, 15, 25, 50]
 
 const Calculator = () => {
   const [values, setValues] = useState<State>({
-    bill: null,
-    tip: null,
-    person: null
+    bill: '',
+    tip: '',
+    person: ''
   })
   const [clickTip, setClickTip] = useState<number>()
+  const [error, setError] = useState<boolean>(false)
   const [resultTip, setResultTip] = useState<number>(0)
   const [total, setTotal] = useState<number>(0)
-  const [error, setError] = useState<boolean>(false)
 
   useEffect(() => {
-    if (values.person == 0) {
+    if (+values.person === 0 && values.person !== '') {
       setError(true)
     } else {
       setError(false)
@@ -48,6 +48,15 @@ const Calculator = () => {
       ...values,
       [event.target.name]: event.target.value,
     })
+  }
+
+  const onClick = () => {
+    const { bill, tip, person } = values
+    const forOne = +bill/+person
+    const resultTip = clickTip ? forOne * clickTip/100 : forOne * +tip/100
+    const result = forOne + resultTip
+    setTotal(result)
+    setResultTip(resultTip)
   }
 
   return (
@@ -65,7 +74,7 @@ const Calculator = () => {
           </BillContainer>
 
           <TipContainer>
-            <p>Select Tip%</p>
+            <p className='tip-block-title'>Select Tip%</p>
             <div className='grid-tips'>
               {arrayOfPercents.map(item =>
                 <PercentBlock
@@ -73,6 +82,10 @@ const Calculator = () => {
                   active={item === clickTip}
                   onClick={() => {
                     setClickTip(item)
+                    setValues({
+                      ...values,
+                      tip: ''
+                    })
                   }}
                 >
                   {item}%
@@ -82,6 +95,7 @@ const Calculator = () => {
                 size='nano'
                 value={values.tip}
                 onChange={onChange}
+                onFocus={() => setClickTip(null)}
                 name='tip'
                 placeholder='CUSTOM'
                 max={100}
@@ -122,7 +136,7 @@ const Calculator = () => {
             </ResultBlocks>
           </ResultContainer>
           <ButtonContainer>
-            <Button>RESET</Button>
+            <Button onClick={onClick}>RESET</Button>
           </ButtonContainer>
         </RightSide>
 
